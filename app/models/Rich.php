@@ -17,21 +17,21 @@ class Rich
 
     public function getRichest()
     {
-        $this->db->query('SELECT * FROM Richest');
+        $this->db->query('SELECT * FROM richestpeople');
         return $this->db->resultSet();
     }
 
-    public function getRichest($id)
+    public function getRich($id)
     {
-        $this -> db->query("SELECT * FROM Richest WHERE Id = :id");
+        $this -> db->query("SELECT * FROM richestpeople WHERE Id = :id");
         $this->db->bind(':id', $id, PDO::PARAM_INT);
         return $this->db->single();
     }
 
-    public function deleteRichest($id)
+    public function deleteRich($id)
     {
        
-        $this->db->query("DELETE FROM Richest WHERE Id = :id");
+        $this->db->query("DELETE FROM richestpeople WHERE Id = :id");
         $this->db->bind(':id', $id, PDO::PARAM_INT);
         return $this->db->execute();
     }
