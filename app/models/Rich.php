@@ -4,7 +4,7 @@
  * Dit is de model voor de controller Countries
  */
 
-class Country
+class Rich
 {
     //properties
     private $db;
@@ -15,23 +15,23 @@ class Country
         $this->db = new Database();
     }
 
-    public function getCountries()
+    public function getRichest()
     {
-        $this->db->query('SELECT * FROM Richestpeople');
+        $this->db->query('SELECT * FROM Richest');
         return $this->db->resultSet();
     }
 
-    public function getCountry($id)
+    public function getRichest($id)
     {
-        $this -> db->query("SELECT * FROM Richestpeople WHERE Id = :id");
+        $this -> db->query("SELECT * FROM Richest WHERE Id = :id");
         $this->db->bind(':id', $id, PDO::PARAM_INT);
         return $this->db->single();
     }
 
-    public function deleteCountry($id)
+    public function deleteRichest($id)
     {
        
-        $this->db->query("DELETE FROM Richestpeople WHERE Id = :id");
+        $this->db->query("DELETE FROM Richest WHERE Id = :id");
         $this->db->bind(':id', $id, PDO::PARAM_INT);
         return $this->db->execute();
     }
